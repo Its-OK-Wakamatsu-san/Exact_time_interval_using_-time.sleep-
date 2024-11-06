@@ -128,7 +128,7 @@ class Application(tk.Frame):
             self.txt_x2.delete (0,'end')
             self.txt_x2.insert (tk.END, str_daytime)
 
-            time.sleep(1.2) #   imaginary processing time
+            time.sleep(0.95) #   imaginary processing time
 
             # threading  queue
             queue4.put('from thread Proc_2')
