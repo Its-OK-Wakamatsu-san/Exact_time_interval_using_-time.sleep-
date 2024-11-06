@@ -1,1 +1,1 @@
-# Correct-duration-using-time.sleep-
+# Precise time intervals using time.sleep
