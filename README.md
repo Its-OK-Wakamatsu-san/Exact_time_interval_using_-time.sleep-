@@ -8,13 +8,11 @@ I often use "time.sleep", but the sleep time is about my required time, but not 
 It helps to precise time intervals using "time.sleep" on Python.
 
 ### Case#1
-time.sleep, threading , queue 
-
+Case#1 is when using "time.sleep" , "threading", and "queue". [^1]
 
 ### Case#2
-Case#2 is when not using threading. For example, when using matplotlib FuncAnimation method, in the update function, adujust time.sleep dulation.
+Case#2 is when not using "threading". For example, when using "matplotlib FuncAnimation" method, in the update function, I shall adjust "time.sleep" duration.
    
-
 ### Hardware Environment
   1. PC: windows PC
      
@@ -24,7 +22,7 @@ Case#2 is when not using threading. For example, when using matplotlib FuncAnima
   3. Libraries: numpy, matplotlib
      
 ### Known issue
-  1. CRC8 [^2]: It is not possible to resolve the CRC8 code for me, so it can only receive frequency data.
+  1. None
      
 ### Rerated Webpages
-[^1]: [PREVAC TM13/TM14](https://prevac.eu/product/thickness-monitors-tm13-tm14/)
+[^1]: [How to run and verify periodically in Python,  described in Japanese](https://qiita.com/montblanc18/items/05715730d99d450fd0d3))
