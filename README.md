@@ -11,7 +11,7 @@ It helps to precise time intervals using "time.sleep" on Python.
 Case#1 is when using "time.sleep" , "threading", and "queue". [^1]
 
 ### Case#2
-Case#2 is when not using "threading". For example, when using "matplotlib FuncAnimation" method, in the update function, I shall adjust "time.sleep" duration.
+Case#2 is when not using "threading". For example, when using "matplotlib FuncAnimation" method, I shall adjust "time.sleep" duration in the " update function".
    
 ### Hardware Environment
   1. PC: windows PC
