@@ -90,7 +90,7 @@ class Application(tk.Frame):
             queue3.get('Process1')
             queue4.get('Process2')
 
-            # time compensate
+            # adjust the rest_time
             time_instant = time.time()
             turnaround_time =  time_instant - time_old
             time_old = time_instant
