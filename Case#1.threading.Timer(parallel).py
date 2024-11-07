@@ -4,12 +4,13 @@
 # threading自分が理解しやすいキューを出して動作させる方法でタイムコントロールしてみた。
 # Time_Control -> Proc1 ->return(Time_Control) (parallel)
 #              -> Proc2 ->return(Time_Control) (parallel)
+# windows timer precision ... 15.625msec ... 1/64 second. 
 
 # -*- coding: utf-8 -*-
 import os.path
-import threading
 import time
 import datetime
+import threading
 import queue
 import tkinter as tk
 
@@ -66,11 +67,11 @@ class Application(tk.Frame):
     
     def Time_Control(self,queue1,queue2,queue3,queue4):
 
-        # Initial(local)
-        rest_time   = interval_t  = 1.0
+        # Initial
+        rest_time   = interval_req  = 1.0
         time_old    = time.time()
             
-        #Time_Control start  write textBox_0
+        #Time_Control start ... write textBox_0
         str_daytime=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
         self.txt_x0.delete (0,'end')
         self.txt_x0.insert (tk.END, str_daytime)
@@ -94,10 +95,10 @@ class Application(tk.Frame):
             time_instant = time.time()
             turnaround_time =  time_instant - time_old
             time_old = time_instant
-            rest_time += (interval_t - turnaround_time)
-            if rest_time <= 0.001:
+            rest_time += (interval_req - turnaround_time)
+            if rest_time <= 0.001:                          # to prevent negative time
                 rest_time =0.001
-            print(rest_time)
+            print('turn_around_time = ',f'{turnaround_time:.3f}')
         return
     
     def Proc1(self,queue1,queue2,queue3,queue4):
@@ -128,7 +129,7 @@ class Application(tk.Frame):
             self.txt_x2.delete (0,'end')
             self.txt_x2.insert (tk.END, str_daytime)
 
-            time.sleep(0.95) #   imaginary processing time
+            time.sleep(0.5) #   imaginary processing time
 
             # threading  queue
             queue4.put('from thread Proc_2')
