@@ -6,6 +6,7 @@ Python , module , method , precise , interval time , time.sleep , threading , qu
 ## Overview
 We often use "time.sleep" in our measurements, but "time.sleep" gives us the approximate time requested, but not the exact time.
 We can set the time interval precisely by adjusting the sleep period using "time.sleep".
+
 ### Case#1
 Case#1 is when using "time.sleep" , "threading", and "queue".[^1]  　I'll adjust the "time.sleep" period at the end of a series of threading processes.
 
@@ -13,6 +14,8 @@ Case#1 is when using "time.sleep" , "threading", and "queue".[^1]  　I'll adjus
 
 ### Case#2
 Case#2 is when not using "threading". For example, when using "matplotlib FuncAnimation" method, I shall adjust "time.sleep" period in the " update function".
+
+![Case#2](https://github.com/user-attachments/assets/402a9c9c-fb4a-4b6d-ab3e-d55d58736e13)
    
 ### Hardware Environment
   1. PC: windows PC
