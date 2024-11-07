@@ -1,4 +1,5 @@
 # realtime plot using FuncAnimation, animation interval_time adjusted to the correct duration.
+# windows timer precision ... 15.625msec ... 1/64 second. 
 import os
 import os.path
 import time
