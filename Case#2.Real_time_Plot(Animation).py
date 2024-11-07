@@ -12,7 +12,7 @@ class Application(tk.Frame):
     def __init__(self, master):
         super(Application, self).__init__(master)
 
-        self.master.geometry("300x400+0+0")                    # Main Panel window location x=0,y=0
+        self.master.geometry("300x250+0+0")                    # Main Panel window location x=0,y=0
         str_prog_name = os.path.basename(__file__) # get present program name
         self.master.title( str_prog_name )
 
@@ -21,7 +21,7 @@ class Application(tk.Frame):
 
         # Frame4
         frame4 = tk.Frame(root, bd=2, pady=5, padx=5)
-        frame4.place(x=20, y=50)
+        frame4.place(x=10, y=10)
         #label
         label_top = tk.Label(frame4, text='Plot Control Panel')
         label_top.grid(row=0, column=0, padx=5, pady=5)
