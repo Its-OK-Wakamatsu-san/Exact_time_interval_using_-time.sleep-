@@ -9,7 +9,7 @@ We can set the time interval precisely by adjusting the sleep period using "time
 ### Case#1
 Case#1 is when using "time.sleep" , "threading", and "queue".[^1]  　I'll adjust the "time.sleep" period at the end of a series of threading processes.
 
-      ![Case#1](https://github.com/user-attachments/assets/029054ea-db4f-4fae-8b36-e3d649b481fd)
+![Case#1](https://github.com/user-attachments/assets/029054ea-db4f-4fae-8b36-e3d649b481fd)
 
 ### Case#2
 Case#2 is when not using "threading". For example, when using "matplotlib FuncAnimation" method, I shall adjust "time.sleep" period in the " update function".
