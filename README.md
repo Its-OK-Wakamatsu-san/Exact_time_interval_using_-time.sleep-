@@ -13,7 +13,7 @@ Case#1 is when using "time.sleep" , "threading", and "queue".[^1]  　I'll adjus
 ![Case#1](https://github.com/user-attachments/assets/029054ea-db4f-4fae-8b36-e3d649b481fd)
 
 ### Case#2
-Case#2 is when not using "threading". For example, when using "matplotlib FuncAnimation" method, I shall adjust "time.sleep" period in the " update function".
+Case#2 is when not using "threading". For example, when using "matplotlib FuncAnimation" method. "FuncAnimation" calls a time interval, which cannot be changed, but "FuncAnimation" also calls an "external update function", and in that function you can adjust a time interval using "time.sleep" method.
 
 ![Case#2](https://github.com/user-attachments/assets/402a9c9c-fb4a-4b6d-ab3e-d55d58736e13)
    
