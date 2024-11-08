@@ -1,7 +1,7 @@
 # Precise time intervals using "time.sleep"
 
 ### Keyword
-Python , module , method , precise , interval time , time.sleep , threading , queue , update 
+Python , module , method , precise , interval time , time.sleep , threading , queue , matplotlib FuncAnimation , update 
 
 ## Overview
 We often use "time.sleep" in our measurements, but "time.sleep" gives us the approximate time requested, but not the exact time.
