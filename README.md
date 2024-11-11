@@ -7,6 +7,9 @@ Python , module , method , precise , interval time , time.sleep , threading , qu
 We often use "time.sleep" in our measurements, but "time.sleep" gives us the approximate time requested, but not the exact time.
 We can set the time interval precisely by adjusting the sleep period using "time.sleep".
 
+> [!TIPS]
+> 1. Windows OS usually operates at 1/64second = 15.625 msec, so that is the degree of time accuracy.
+
 ### Case#1
 Case#1 is when using "time.sleep" , "threading", and "queue".[^1]  　I'll adjust the "time.sleep" period at the end of a series of threading processes.
 
