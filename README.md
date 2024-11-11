@@ -8,7 +8,7 @@ We often use "time.sleep" in our measurements, but "time.sleep" gives us the app
 We can set the time interval precisely by adjusting the sleep period using "time.sleep".
 
 > [!TIPS]
-> 1. Windows OS usually operates at 1/64second = 15.625 msec, so that is the degree of time accuracy.
+> 1.  The default system clock tickon a Windows OS is 15.625 msec -- 1/64 second. So that is the degree of time accuracy.
 
 ### Case#1
 Case#1 is when using "time.sleep" , "threading", and "queue".[^1]  　I'll adjust the "time.sleep" period at the end of a series of threading processes.
