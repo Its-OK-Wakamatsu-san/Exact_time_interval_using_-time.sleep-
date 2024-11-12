@@ -5,7 +5,7 @@ Python , module , method , precise , interval time , time.sleep , threading , qu
 
 ## Overview
 We often use "time.sleep" in our measurements, but "time.sleep" gives us the approximate time requested, but not the exact time.
-We can set the time interval precisely by adjusting the sleep period using "time.sleep".
+Here, it provides a software to set the time interval precisely by adjusting the sleep period using "time.sleep".
 
 > [!TIPS]
 > 1.  The default system clock tickon a Windows OS is 15.625 msec -- 1/64 second. So that is the degree of time accuracy.
