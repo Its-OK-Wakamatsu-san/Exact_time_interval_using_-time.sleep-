@@ -1,4 +1,4 @@
-#Exact time interval using "time.sleep"
+#Exact time interval using "time.sleep" with time correction.
 
 ### Keyword
 Python , module , method , precise , interval time , time.sleep , threading , queue , matplotlib FuncAnimation , update 
