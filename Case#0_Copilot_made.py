@@ -1,3 +1,10 @@
+#This script will print the elapsed time exactly every second.
+#'start_time' records the time the script started.
+#'previous_time' records the end time of the last iteration.
+#'last_printed_second' records the number of seconds the elapsed time was last printed.
+#In the while loop, we get the current time and fold it into 'current_time'.
+#'elapsed_time' calculates the amount of time elapsed since the 'start_time'.
+
 import time
 import csv
 from datetime import datetime
