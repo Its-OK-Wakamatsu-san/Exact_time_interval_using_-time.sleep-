@@ -11,7 +11,7 @@ Here, it provides a software to set the time interval precisely by adjusting the
 > 1.  The default system clock tickon a Windows OS is 15.625 msec -- 1/64 second. So that is the degree of time accuracy.
 
 ### Case#0
-GitHub Copilot made this routine.
+This program is created by GitHub Copilot.
 
 ### Case#1
 Case#1 is when using "time.sleep" , "threading", and "queue".[^1]  　I'll adjust the "time.sleep" period at the end of a series of threading processes. It is processing at every one second.
