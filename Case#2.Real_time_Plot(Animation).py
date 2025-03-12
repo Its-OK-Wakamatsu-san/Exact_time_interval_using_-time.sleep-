@@ -18,6 +18,7 @@ class Application(tk.Frame):
 
         # Animation flag running.
         self.isRunning = True
+        self.eps  = 0.015625 #  1/64 seconds
 
         # Frame4
         frame4 = tk.Frame(root, bd=2, pady=5, padx=5)
@@ -42,7 +43,7 @@ class Application(tk.Frame):
         self.en_bias.insert(tk.END, str(4))
         self.srt_t_interval = tk.Entry(frame4, width=10, justify='center')
         self.srt_t_interval.grid(row=3, column=1, padx=5, pady=5)
-        self.srt_t_interval.insert(tk.END, str(0.2))
+        self.srt_t_interval.insert(tk.END, str(0.5))
         self.elapsed_time = tk.Entry(frame4, width=15, justify='center')
         self.elapsed_time.grid(row=5, column=1, padx=5, pady=5) 
         # Exec Button
@@ -89,15 +90,27 @@ class Application(tk.Frame):
     def __update(self,frame):
         # time control
         time.sleep(self.rest_time)
+
         #elapsed_time
         time_instant = time.time()
-        elapsed_t = time_instant - self.time_start
+        elapsed_time = time_instant - self.time_start
         self.elapsed_time.delete(0,'end')
-        self.elapsed_time.insert(0, f'{elapsed_t:.3f}') #  ←小数点以下3桁表示
+        self.elapsed_time.insert(0, f'{elapsed_time:.3f}') #  ←小数点以下3桁表示
 
+        # adjust the rest_time
+        turnaround_time =  time_instant - self.time_old
+        self.time_old = time_instant
+        self.rest_time = self.dt - (elapsed_time % self.dt ) 
+        # to prevent negative seconds. 1/64 seconds is added.
+        if self.rest_time <= self.eps:
+            self.rest_time = self.eps
+        print(' elapsed_time = ',  f'{ elapsed_time:.3f} sec',',  turnaround_time = ',  f'{turnaround_time:.3f} sec',
+              ',  sleep_set_time = ',  f'{self.rest_time:.3f} sec' )        
+
+              
         #  plot data update
         self.x.append(self.x[-1] + 1)
-        self.y0.append(elapsed_t)
+        self.y0.append(elapsed_time)
         self.y1.append(self.bias + self.amplitude * np.sin(self.dt * self.x[-1]))
         self.y2.append(self.bias + self.amplitude * np.cos(self.dt * self.x[-1]))
     
@@ -106,13 +119,6 @@ class Application(tk.Frame):
         self.fig.gca().relim()          #grapgh cal re-calculate limit
         self.fig.gca().autoscale_view() #grapgh cal autoscale
 
-        # rest_time(self.rest_time) is adjested to the required time_interval(self.dt)
-        turnaround_time =  time_instant - self.time_old
-        self.time_old = time_instant
-        self.rest_time += (self.dt - turnaround_time)
-        if self.rest_time <= 0.001:
-            self.rest_time =0.001
-        print('turnaround_time = ',  f'{turnaround_time:.3f}',',  sleep_set_time = ',  f'{self.rest_time:.3f}')
         return
     
     # "Pause/Resume" is executed, when button is clicked. Running status is toggled.

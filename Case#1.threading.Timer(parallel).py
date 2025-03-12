@@ -20,6 +20,7 @@ class Application(tk.Frame):
 
         # Initial Conditions 
         self.stop_threads = False                   # stop threading flag  False = Threading continue.
+        self.eps  = 0.015625                        #  1/64 seconds
 
         master.geometry("400x140")                  # window size(width x height)
         str_prog_name = os.path.basename(__file__)  # get present program name
@@ -69,7 +70,7 @@ class Application(tk.Frame):
 
         # Initial
         rest_time   = interval_req  = 1.0
-        time_old    = time.time()
+        time_0 = time_old    = time.time()
             
         #Time_Control start ... write textBox_0
         str_daytime=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
@@ -93,12 +94,14 @@ class Application(tk.Frame):
 
             # adjust the rest_time
             time_instant = time.time()
+            elapsed_time = time_instant - time_0
             turnaround_time =  time_instant - time_old
             time_old = time_instant
-            rest_time += (interval_req - turnaround_time)
-            if rest_time <= 0.001:                          # to prevent negative time
-                rest_time =0.001
-            print('turn_around_time = ',f'{turnaround_time:.3f}')
+            rest_time = interval_req - (elapsed_time % interval_req ) 
+            # to prevent negative seconds. 1/64 seconds is added.
+            if rest_time <= self.eps:
+                rest_time = self.eps
+            print(f"Elapsed time = {elapsed_time:.3f} seconds, turn_around_time = {turnaround_time:.3f} seconds")
         return
     
     def Proc1(self,queue1,queue2,queue3,queue4):
